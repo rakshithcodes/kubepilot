@@ -214,7 +214,7 @@ wheels = [
 [[package]]
 name = "kubepilot"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "kubernetes" },
     { name = "rich" },
