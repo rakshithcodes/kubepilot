@@ -5,7 +5,7 @@ app = typer.Typer()
 
 @app.command()
 def hello():
-    print("Hello from KubePilot v2")
+    print("Hello from KubePilot")
 
 
 @app.command()
