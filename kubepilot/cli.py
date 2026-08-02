@@ -1,5 +1,6 @@
 import typer
 from kubepilot.kubernetes.pods import list_pods
+from kubepilot.options import NamespaceOption, AllNamespacesOption
 app = typer.Typer()
 
 
@@ -13,13 +14,11 @@ def version():
     print("0.1.0")
 
 @app.command()
-def pods(
-    namespace: str = typer.Option(None, "-namespace", "-n", help="Namespace to list pods from. If not provided, the current namespace will be used.")
-    ):
-    if namespace:
-        list_pods(namespace)
-    else:    
-        list_pods()
+def pods(namespace: NamespaceOption = None, all_namespaces: AllNamespacesOption = False):
+    list_pods(
+        ns=namespace,
+        all_namespaces=all_namespaces,
+    )
 
 if __name__ == "__main__":
     app()
